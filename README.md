@@ -6,7 +6,7 @@ Cadência é um aplicativo de cartões de estudo para organizar assuntos, pratic
 
 ![Tela inicial do Cadência com resumo do dia e baralhos de estudo](docs/preview.jpg)
 
-[Repositório](https://github.com/fbottega-dev/cadencia) · [Guia de estudo](docs/GUIA-DE-ESTUDO.md) · [Validação](docs/VALIDACAO.md) · [Próximos passos](docs/EVOLUCAO.md)
+[Abrir o aplicativo](https://fbottega-dev.github.io/cadencia/) · [Repositório](https://github.com/fbottega-dev/cadencia) · [Guia de estudo](docs/GUIA-DE-ESTUDO.md) · [Validação](docs/VALIDACAO.md) · [Próximos passos](docs/EVOLUCAO.md)
 
 ## O que você pode fazer
 
@@ -99,7 +99,7 @@ As regras de revisão ficam em funções puras, separadas da interface. A entrad
 
 ## Publicação
 
-O projeto gera um site estático, adequado ao GitHub Pages. O destino previsto é [fbottega-dev.github.io/cadencia](https://fbottega-dev.github.io/cadencia/). A disponibilidade da publicação e as verificações realizadas devem ser conferidas em [Validação](docs/VALIDACAO.md).
+A demonstração está publicada em [fbottega-dev.github.io/cadencia](https://fbottega-dev.github.io/cadencia/). A CI verifica tipos, testes e build em Windows e Ubuntu antes de publicar. Consulte as evidências e limites em [Validação](docs/VALIDACAO.md).
 
 ## Contexto do projeto
 

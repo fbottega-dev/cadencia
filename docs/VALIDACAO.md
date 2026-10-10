@@ -4,7 +4,7 @@ Verificações realizadas em 10/10/2026. Projeto desenvolvido e revisado com apo
 
 ## Ambiente
 
-Windows, Node.js 24.19.0 e npm 11.17.0. Navegador integrado do Codex (Chromium), com interface inspecionada em 1440 × 1050 e 390 × 844 pixels. As capturas `preview.jpg` e `mobile.jpg` mostram a implementação real.
+Windows, Node.js 24.19.0 e npm 11.17.0. Navegador integrado do Codex (Chromium), com interface inspecionada em 1440 × 1050, 390 × 844 e 360 × 800 pixels. As capturas `preview.jpg` e `mobile.jpg` mostram a implementação real.
 
 ## Verificações locais
 
@@ -30,7 +30,7 @@ No Windows, a reinstalação inicialmente encontrou uma DLL do Vite em uso pelo 
 - Persistência de cartões, próxima data e histórico após recarregar.
 - Cancelamento da exclusão e exclusão confirmada de um cartão de teste, incluindo seu histórico.
 - Exportação de JSON para um arquivo real, abertura da prévia de importação, cancelamento e restauração confirmada em outra origem local.
-- Layout de celular sem rolagem horizontal; diálogo, busca e estados vazios inspecionados visualmente.
+- Layout de celular sem rolagem horizontal; diálogo, busca e estados vazios inspecionados visualmente. Tab levou ao campo do formulário e Escape fechou o diálogo sem gravar.
 - Acesso offline real: depois de instalar a versão corrigida, o servidor HTTP foi encerrado. A página recarregou pelo cache, revelou a resposta e gravou uma revisão no IndexedDB.
 
 A concorrência entre abas, a rejeição de backups inválidos/excessivos e todos os intervalos de revisão foram verificados por testes automatizados. Não houve auditoria completa com leitor de tela nem execução em Safari, Firefox ou aparelho móvel físico.
@@ -42,6 +42,8 @@ Um backup podia conter histórico válido isoladamente e uma agenda incompatíve
 O teste offline revelou uma página sem JavaScript depois de atualizações locais. O Vite enviava `Vary: Origin`, e a requisição de módulo não correspondia à entrada de precache. A leitura dos recursos estáticos conhecidos agora ignora essa variação. Além disso, a instalação força a atualização do cache HTTP e a navegação usa o HTML da mesma versão instalada. O teste real com o servidor desligado passou após a correção.
 
 ## Publicação
+
+O commit de implementação `48e7e90` passou na [CI de Windows, Ubuntu e publicação](https://github.com/fbottega-dev/cadencia/actions/runs/38081970124). A [demonstração pública](https://fbottega-dev.github.io/cadencia/) foi aberta e conferida no navegador em 10/10/2026, no caminho real `/cadencia/`.
 
 O workflow `.github/workflows/ci.yml` instala, verifica, testa e compila em Windows e Ubuntu. A publicação no GitHub Pages depende da aprovação dos dois ambientes. Consulte a [execução mais recente](https://github.com/fbottega-dev/cadencia/actions) para verificar o commit publicado.
 
