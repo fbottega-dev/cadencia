@@ -1,0 +1,12 @@
+{
+  "name": "Cadência — seu ritmo de aprender",
+  "short_name": "Cadência",
+  "description": "Cartões de estudo com revisão espaçada e armazenamento local.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f9f5",
+  "theme_color": "#244e40",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
