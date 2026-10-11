@@ -47,11 +47,11 @@
   let offline = $state(false);
   let offlineReady = $state(false);
   let importInput = $state<HTMLInputElement>();
-  const menu: { id: View; label: string; icon: string }[] = [
-    { id: 'today', label: 'Hoje', icon: 'sun' },
-    { id: 'decks', label: 'Meus baralhos', icon: 'cards' },
-    { id: 'progress', label: 'Meu progresso', icon: 'chart' },
-    { id: 'data', label: 'Meus dados', icon: 'archive' },
+  const menu: { id: View; label: string }[] = [
+    { id: 'today', label: 'Hoje' },
+    { id: 'decks', label: 'Meus baralhos' },
+    { id: 'progress', label: 'Meu progresso' },
+    { id: 'data', label: 'Meus dados' },
   ];
   let due = $derived(workspace ? dueCards(workspace, date) : []);
   let studiedToday = $derived(
@@ -333,7 +333,7 @@
 
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 <div class="app-shell">
-  <aside class="sidebar">
+  <header class="masthead">
     <a
       class="brand"
       href="#main"
@@ -343,34 +343,23 @@
         >cadência<span class="brand-dot">.</span></span
       ></a
     >
-    <p class="brand-caption">SEU RITMO DE APRENDER</p>
+    <p class="brand-caption">ESTÚDIO DE MEMÓRIA</p>
     <nav aria-label="Navegação principal">
-      {#each menu as item}<button
+      {#each menu as item, index}<button
           class:active={view === item.id && !studyCards}
           aria-current={view === item.id && !studyCards ? 'page' : undefined}
           onclick={() => navigate(item.id)}
-          ><Icon name={item.icon} /><span>{item.label}</span
+          ><span class="nav-index" aria-hidden="true">0{index + 1}</span><span
+            >{item.label}</span
           >{#if item.id === 'today' && due.length}<span class="nav-count"
               >{due.length}</span
             >{/if}</button
         >{/each}
     </nav>
-    <div class="sidebar-note">
-      <div class="growth-symbol" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-      <p>Grandes aprendizados.<br /><em>Pequenos passos.</em></p>
-      <span>Um cartão de cada vez.</span>
-    </div>
-    <div class="local-status">
-      <span class="status-dot"></span>
-      <div>
-        <strong>Seu espaço, seus dados</strong><span
-          >Armazenados neste navegador</span
-        >
-      </div>
-    </div>
-  </aside>
+    <span class="masthead-note"
+      ><span class="status-dot"></span> Feito para o seu ritmo.</span
+    >
+  </header>
 
   <div class="main-shell">
     <header class="topbar">
@@ -440,7 +429,7 @@
                   month: 'long',
                 })}
               </p>
-              <h1>Vamos encontrar seu ritmo?</h1>
+              <h1>Seu treino de memória.</h1>
             </div>
             <button
               class="button secondary"
@@ -455,10 +444,10 @@
           <section class="hero" aria-labelledby="hero-title">
             <div class="hero-content">
               <span class="hero-label"
-                ><span class="status-dot"></span> UM ENCONTRO COM O QUE VOCÊ APRENDEU</span
+                ><span class="status-dot"></span> APRENDER É VOLTAR ÀS BOAS IDEIAS</span
               >
               <h2 id="hero-title">
-                Um pouco hoje.<br /><em>Muito mais amanhã.</em>
+                Conhecimento<br />que <span class="headline-mark">fica.</span>
               </h2>
               <p>
                 {due.length
@@ -480,25 +469,30 @@
               >
             </div>
             <div class="hero-art" aria-hidden="true">
-              <div class="orbit orbit-one"></div>
-              <div class="orbit orbit-two"></div>
-              <span class="art-spark one">✳</span><span class="art-spark two"
-                >+</span
-              >
-              <div class="paper back-paper"></div>
-              <div class="paper mid-paper"></div>
-              <div class="paper front-paper">
-                <span class="paper-kicker">UMA IDEIA PARA GUARDAR</span><Icon
-                  name="leaf"
-                  size={36}
+              <div class="art-caption">
+                <span>CADÊNCIA / PRÁTICA DIÁRIA</span><Icon
+                  name="spark"
+                  size={27}
                 />
-                <p>Aprender é voltar<br />a encontrar.</p>
-                <div class="paper-footer">
-                  <span>um dia de cada vez</span><span>↗</span>
+              </div>
+              <div class="memory-stack">
+                <div class="index-sheet sheet-back"></div>
+                <div class="index-sheet sheet-middle"></div>
+                <div class="index-sheet sheet-front">
+                  <div class="sheet-heading">
+                    <span>NOTA MENTAL</span><span>↗</span>
+                  </div>
+                  <p>Ler.<br />Lembrar.<br /><span>Repetir.</span></p>
+                  <div class="sheet-footer">
+                    <span>UMA IDEIA DE CADA VEZ</span><Icon
+                      name="cards"
+                      size={23}
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="art-label">
-                <span class="status-dot"></span> Pequenos passos, novas conexões
+              <div class="art-caption art-bottom">
+                <span>PEQUENOS PASSOS, NOVAS CONEXÕES.</span><span>↻</span>
               </div>
             </div>
           </section>
@@ -555,7 +549,10 @@
 
           <div class="section-heading">
             <div>
-              <h2>Seus próximos passos</h2>
+              <h2>
+                <span class="section-number" aria-hidden="true">01 /</span> Na sua
+                mesa
+              </h2>
               <p>Escolha um assunto e continue de onde parou.</p>
             </div>
             <button class="text-button" onclick={() => navigate('decks')}
@@ -569,7 +566,7 @@
                 ).length}{@const pending = due.filter(
                 (c) => c.deckId === deck.id,
               ).length}
-              <article class="deck-card">
+              <article class="deck-card" data-color={deck.color}>
                 <div class="deck-top">
                   <span class="deck-icon {deck.color}"
                     ><Icon name="cards" size={24} /></span
@@ -638,7 +635,7 @@
             <div class="deck-grid library-grid">
               {#each workspace.decks as deck}{@const count =
                   workspace.cards.filter((c) => c.deckId === deck.id).length}
-                <article class="deck-card">
+                <article class="deck-card" data-color={deck.color}>
                   <div class="deck-top">
                     <span class="deck-icon {deck.color}"
                       ><Icon name="cards" size={24} /></span

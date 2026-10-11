@@ -4,6 +4,8 @@
 
 Cadência é um aplicativo de cartões de estudo para organizar assuntos, praticar recordação e distribuir revisões ao longo dos dias. Foi criado como projeto de estudo e portfólio com **Svelte 5, TypeScript 6 e IndexedDB**, explorando uma interface reativa e persistência local sem servidor de aplicação.
 
+A identidade visual combina papel creme, tinta escura e laranja, com navegação no topo, tipografia sem serifa e baralhos em forma de fichas. A interface se adapta a celular, tablet e desktop; as fontes são servidas junto do aplicativo.
+
 ![Tela inicial do Cadência com resumo do dia e baralhos de estudo](docs/preview.jpg)
 
 [Abrir o aplicativo](https://fbottega-dev.github.io/cadencia/) · [Repositório](https://github.com/fbottega-dev/cadencia) · [Guia de estudo](docs/GUIA-DE-ESTUDO.md) · [Validação](docs/VALIDACAO.md) · [Próximos passos](docs/EVOLUCAO.md)

@@ -64,7 +64,7 @@
     </div>
     <article class="flashcard">
       <span class="pill {deck?.color}"
-        ><Icon name="cards" size={15} /> {deck?.name}</span
+        ><Icon name="cards" size={15} /> <span>{deck?.name}</span></span
       >
       <p class="eyebrow question-label">PERGUNTA</p>
       <h2>{current.front}</h2>

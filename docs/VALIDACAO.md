@@ -1,4 +1,19 @@
-# Validação da versão 1.0
+# Validação do Cadência
+
+## Atualização visual — 11/10/2026
+
+A interface passou a usar navegação no topo, tipografia sem serifa, paleta creme/tinta/laranja, resumo em faixa e baralhos com abas. Ícone e cores do manifesto acompanham a identidade. A fonte Lora foi removida; DM Sans continua local. O formato dos dados, a agenda de revisão e o código de persistência não foram alterados.
+
+- `npm run check`: zero erros e zero avisos; `npm test`: 103 testes aprovados; build de produção concluído com 13 recursos no cache offline.
+- Chromium integrado: tela inicial conferida em 1440 × 1050, 768 × 1024, 390 × 844 e 320 × 800. Título ajustado para não separar a última letra em telas estreitas; ausência de rolagem horizontal confirmada por medidas do DOM em 768 e 320 pixels.
+- Biblioteca e busca por “Promise”, tela de progresso e tela de dados conferidas; sessão de estudo aberta por teclado e resposta revelada no celular.
+- Diálogo de novo cartão conferido em 320 pixels; Tab levou ao seletor de baralho, e Escape fechou a janela. Nomes longos de baralhos podem quebrar linha no cartão de estudo.
+- Revisão independente de contraste: texto secundário no creme acima de 5:1; indicador de foco no creme acima de 4,5:1. Console da prévia sem erros ou avisos durante a conferência.
+- `docs/preview.jpg` e `docs/mobile.jpg` atualizados com capturas reais desta versão.
+
+Esta rodada validou a apresentação e os controles afetados. Não repetiu a restauração de backup ou o teste manual sem rede; esses fluxos têm o registro anterior abaixo e permanecem cobertos pela suíte automatizada. Não constitui auditoria completa de acessibilidade ou de navegadores.
+
+## Registro inicial — versão 1.0
 
 Verificações realizadas em 10/10/2026. Projeto desenvolvido e revisado com apoio de IA; este registro separa testes automatizados de interação real no navegador.
 

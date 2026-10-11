@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",
-    "@fontsource/lora": "^5.2.8",
     "svelte": "5.57.2"
   },
   "devDependencies": {
